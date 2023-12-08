@@ -9,7 +9,7 @@ function displayCart()
         const itemDiv= document.createElement('div');
         itemDiv.className="cart-item";
 
-        // console.log((item));
+    
         const img=document.createElement("img")
         img.className="cart-img";
         img.src=`./images/${item.id}.jpg`;
