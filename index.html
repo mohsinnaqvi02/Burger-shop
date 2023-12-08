@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Welcome To Burger Shop</title>
+  </head>
+
+  <body>
+    <header style="border: 2px solid black">
+      <div class="header" style="display: flex; flex-wrap: wrap">
+        <h1 id="title">Burger Shop</h1>
+        <nav id="nav-bar" style="display: inline-flex; flex-direction: row">
+          <h3><a href="index.html">Home</a></h3>
+          <h3><a href="">Contact Us</a></h3>
+          <h3><a href="">About Us</a></h3>
+          
+          <h3 id="cart"><a href="cart.html">Cart</a></h3>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <div class="filters">
+        <input type="search" id="search" placeholder="Search" />
+        <select name="category" id="cat">
+          <option value="all">All</option>
+          <option value="veg">Veg</option>
+          <option value="nonveg">Non-Veg</option>
+          <option value="meals">Meals</option>
+          <option value="drinks">Drinks</option>
+        </select>
+      </div>
+
+      <div id="items">
+        
+            <div class="card">
+                <img class="img" src="743a2b7536fd20c8c612c3b4df7f3b6b.jpg" alt="Avatar" />
+                <div class="description" id="desc-0">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+
+                    <div class="order">
+                        <h5>Price : 100</h5>
+                        <select name="noOfItems" id="no-of-items">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <button>ADD</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

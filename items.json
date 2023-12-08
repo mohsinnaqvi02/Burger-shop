@@ -1,0 +1,25 @@
+[
+
+	
+	{
+		"id": 1,
+	"name": "Paneer Burger",
+	"price": 149,
+	"category": "BURGER",
+	"type": "VEG"
+	},
+	{
+		"id": 2,
+		"name": "Chicken Burger",
+		"price": 199,
+		"category": "BURGER",
+		"type": "NONVEG"
+	},
+	{
+		"id": 3,
+		"name": "Pepsi 6ooML",
+		"price": 99,
+		"category": "DRINK",
+		"type": "VEG"
+	}
+]
