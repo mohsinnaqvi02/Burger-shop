@@ -1,4 +1,4 @@
-const cartItems=JSON.parse(localStorage.getItem("cartItem"));
+let cartItems=JSON.parse(localStorage.getItem("cartItem"));
 const items=JSON.parse(localStorage.getItem("items"));
 const meals=JSON.parse(localStorage.getItem("meals"));
 
@@ -7,9 +7,23 @@ function displayCart()
 
     for(let item in cartItems)
     {
+        console.log(cartItems);
     }
 
 }
+
+function deleteFromCart(id)
+{
+    cartItems=cartItems.filter((item)=>{
+        if(!item.id===id)
+        return item;
+    })
+
+    localStorage.setItem("cartItem",JSON.stringify(cartItems));
+
+    displayCart();
+}
+
 
 
 function checkForMealItem(id)
@@ -17,7 +31,9 @@ function checkForMealItem(id)
     for(let item of cartItems)
     {
         if(item.id===id)
-        return true;
+        {
+            return true;
+        }
     }
     return false;
 }
@@ -40,15 +56,13 @@ function checkForMeal()
         if(isPresent)
         {
             cartItems.push(item);
-            console.log(cartItems);
+            // localStorage.setItem("cartItem",JSON.stringify(cartItems));
+            deleteFromCart(cartItems.id);
         }
 
     }
+    displayCart();
     
 }
 
-
-
-
-// displayCart()
 checkForMeal();

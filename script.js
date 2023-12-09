@@ -112,7 +112,7 @@ async function display(elements) {
 }
 
 //Modify item count if item already present in cart
-function existInCart (cartItem,id)
+function existInCart(cartItem,id)
 {
   for(let item of cartItem)
   {
