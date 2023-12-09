@@ -7,6 +7,7 @@ let itemListDiv = document.getElementById("items");
 
 let itemCount = 1;
 
+
 document.body.onload = setElements; //On loading of DOM the display method get called;
 
 async function fetchElements(filename) {
@@ -37,7 +38,7 @@ async function setElements() {
 
   display(allItems);
 
-  document.getElementById("cat").addEventListener("change",myFilter);
+  // document.getElementById("cat").addEventListener("change",myFilter);
 
 }
 
@@ -214,6 +215,8 @@ function myFilter(e)
 
 
 document.getElementById("search").addEventListener("input", search);
+document.getElementById("cat").addEventListener("change",myFilter);
+
 
 // document.getElementById("cart").addEventListener('click',showCart);
 

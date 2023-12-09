@@ -4,23 +4,11 @@ const items=JSON.parse(localStorage.getItem("items"));
 function displayCart()
 {
 
-    for (let item of cartItems)
+    for(let item in cartItems)
     {
-        const itemDiv= document.createElement('div');
-        itemDiv.className="cart-item";
-
-    
-        const img=document.createElement("img")
-        img.className="cart-img";
-        img.src=`./images/${item.id}.jpg`;
-        img.alt=`${item.name}`;
-
-        itemDiv.appendChild(img);
-
-        document.getElementById("cartList").appendChild(itemDiv);
-        
-
+        document.createElement
     }
+
 }
 
 
@@ -46,5 +34,5 @@ function checkForMeal()
 
 
 
-displayCart()
+// displayCart()
 // checkForMeal();
