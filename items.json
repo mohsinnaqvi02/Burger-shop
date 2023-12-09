@@ -21,5 +21,127 @@
 		"price": 99,
 		"category": "DRINK",
 		"type": "VEG"
-	}
+	},
+
+
+	
+	{
+        "id": 4,
+        "name": "Veggie Pizza",
+        "price": 249,
+        "category": "PIZZA",
+        "type": "VEG"
+    },
+    {
+        "id": 5,
+        "name": "Pepperoni Pizza",
+        "price": 299,
+        "category": "PIZZA",
+        "type": "NONVEG"
+    },
+    {
+        "id": 6,
+        "name": "Coca-Cola 500ML",
+        "price": 89,
+        "category": "DRINK",
+        "type": "VEG"
+    },
+    {
+        "id": 7,
+        "name": "Vegetable Biryani",
+        "price": 179,
+        "category": "MAIN COURSE",
+        "type": "VEG"
+    },
+    {
+        "id": 8,
+        "name": "Chicken Biryani",
+        "price": 229,
+        "category": "MAIN COURSE",
+        "type": "NONVEG"
+    },
+    {
+        "id": 9,
+        "name": "Classic Beef Burger",
+        "price": 219,
+        "category": "BURGER",
+        "type": "NONVEG"
+    },
+    {
+        "id": 10,
+        "name": "Double Cheese Burger",
+        "price": 179,
+        "category": "BURGER",
+        "type": "VEG"
+    },
+    {
+        "id": 11,
+        "name": "Iced Tea",
+        "price": 79,
+        "category": "DRINK",
+        "type": "VEG"
+    },
+    {
+        "id": 12,
+        "name": "Mushroom Swiss Burger",
+        "price": 189,
+        "category": "BURGER",
+        "type": "VEG"
+    },
+    {
+        "id": 13,
+        "name": "Spicy Chicken Burger",
+        "price": 209,
+        "category": "BURGER",
+        "type": "NONVEG"
+    },
+    {
+        "id": 14,
+        "name": "Mango Smoothie",
+        "price": 129,
+        "category": "DRINK",
+        "type": "VEG"
+    },
+    {
+        "id": 15,
+        "name": "Vegan Burger",
+        "price": 189,
+        "category": "BURGER",
+        "type": "VEG"
+    },
+    {
+        "id": 16,
+        "name": "Fish Fillet Burger",
+        "price": 219,
+        "category": "BURGER",
+        "type": "NONVEG"
+    },
+    {
+        "id": 17,
+        "name": "Onion Rings",
+        "price": 99,
+        "category": "SIDE",
+        "type": "VEG"
+    },
+    {
+        "id": 18,
+        "name": "BBQ Bacon Burger",
+        "price": 229,
+        "category": "BURGER",
+        "type": "NONVEG"
+    },
+    {
+        "id": 19,
+        "name": "Fries",
+        "price": 79,
+        "category": "SIDE",
+        "type": "VEG"
+    },
+    {
+        "id": 20,
+        "name": "Chocolate Milkshake",
+        "price": 149,
+        "category": "DRINK",
+        "type": "VEG"
+    }
 ]

@@ -97,6 +97,7 @@ async function display(elements) {
 
 
     itemsSelect.addEventListener("change", countItem);
+    // add.addEventListener('mousedown',()=>{add.style.backgroundColor="green"})
     add.addEventListener("click", addToCart);
 
 
