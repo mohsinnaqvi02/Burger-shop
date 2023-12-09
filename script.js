@@ -109,6 +109,22 @@ async function display(elements) {
   }
 }
 
+//Modify item count if item already present in cart
+function existInCart (cartItem,id)
+{
+  for(let item of cartItem)
+  {
+    if(item.id===id)
+    {
+      item.itemCount+=itemCount;
+      itemCount=1;
+      return true;
+    }
+  }
+  return false;
+}
+
+//adding item to cart
 function addToCart(e) {
   e.preventDefault();
   const id = parseInt(e.target.parentElement.parentElement.id);
@@ -116,6 +132,12 @@ function addToCart(e) {
   if (cartItem === null) cartItem = [];
   for (let item of allItems) {
     if (item.id === id) {
+
+      //check if item already exist in cart
+      const chekCart=existInCart(cartItem,id);
+      if(chekCart)
+      break;
+
       item.itemCount = itemCount;
       cartItem.push(item);
     }
@@ -126,7 +148,7 @@ function addToCart(e) {
 }
 
 function countItem(e) {
-  itemCount = e.target.value;
+  itemCount = Number(e.target.value);
 }
 
 
