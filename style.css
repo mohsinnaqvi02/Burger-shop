@@ -68,7 +68,8 @@ nav{
 }
 
 #cartList{
-    border: 2px solid red;
+    border: 2px solid black;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     
@@ -82,3 +83,28 @@ nav{
     margin-left: 100px;
 
 }
+
+#order-div
+{
+    text-align: center;
+    background-color: black;
+}
+#order-btn{
+    background-color: rgb(54, 190, 54);
+    height: 30px;
+    width: 150px;
+    text-decoration: solid;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.remove-btn{
+    background-color: red;
+    height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+/* .ordersummary{
+} */
