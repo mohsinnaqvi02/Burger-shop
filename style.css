@@ -106,6 +106,36 @@ nav{
     border-radius: 10px;
 }
 
+.input-field{
+    margin: 20px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: blanchedalmond;
+    border-radius: 5px ;
+}
 
-/* .ordersummary{
-} */
+.payment{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    width: 100%;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    width: 100%;
+    align-items: center;
+}
+
+#confirm
+{
+    background-color: rgb(54, 190, 54);
+    height: 30px;
+    width: 150px;
+    text-decoration: solid;
+    border: 2px solid black;
+    border-radius: 10px;
+}

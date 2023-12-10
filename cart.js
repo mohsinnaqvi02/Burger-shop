@@ -3,6 +3,9 @@ const items = JSON.parse(localStorage.getItem("items"));
 const meals = JSON.parse(localStorage.getItem("meals"));
 
 
+let gtotal=0;
+
+
 // DISPLAYING THE CART ITEMS
 function displayCart() {
   const tbody = document.getElementById("tbody");
@@ -103,6 +106,7 @@ function displayCart() {
   document.getElementById(
     "cart-length"
   ).innerText = `Total Item(s) : ${cartItems.length}`;
+
 }
 
 //increasing item count for an item
@@ -144,6 +148,10 @@ function deleteFromCart(id) {
   displayCart();
 }
 
+
+
+
+
 //checking if item id present in cart items or not
 function checkForMealItem(id) {
   for (let item of cartItems) {
@@ -153,6 +161,23 @@ function checkForMealItem(id) {
   }
   return false;
 }
+
+
+
+//Adding count to optimized bill meal
+function addCountToMeal(id,count)
+{
+  for(let item of cartItems)
+  {
+    if(item.id===id)
+    {
+      item.itemCount=count;
+    }
+  }
+  return;
+}
+
+
 
 //Checking for whether items are part of a meal - Optimizing the bill of customer;
 function checkForMeal() {
@@ -169,6 +194,7 @@ function checkForMeal() {
 
     if (isPresent) {
       cartItems.push(item);
+      addCountToMeal(item.id,1);
       for (let i of prodArr) {
         deleteFromCart(i);
       }
@@ -176,6 +202,8 @@ function checkForMeal() {
   }
   displayCart();
 }
+
+
 
 
 //Generating the bill & grand Total amount 
@@ -189,7 +217,6 @@ function generateBill(e)
     const pbody=document.getElementById("pay-body");
 
     let no=1;
-    let gtotal=0;
     for(let item of cartItems)
     {
           const trow=document.createElement("tr");
@@ -229,6 +256,8 @@ function generateBill(e)
     
 }
 
+
+
 //On Confirm of the order
 function orderConfirm(e)
 {
@@ -237,10 +266,10 @@ function orderConfirm(e)
   document.getElementById('msg').style.color="green";
   document.getElementById("cartList").innerHTML="";
   document.getElementById('order-sum').innerHTML="";
-  console.log("hello")
+  
   localStorage.setItem("orders",JSON.stringify(cartItems));
   localStorage.removeItem("cartItem");
-  displayCart();
+  
 }
 
 

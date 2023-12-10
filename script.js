@@ -96,7 +96,10 @@ async function display(elements) {
     dropdiv.append(add);
 
 
+    //event for item count
     itemsSelect.addEventListener("change", countItem);   //some issues to be solved here
+
+    //event to add item to cart
     add.addEventListener("click", addToCart);
 
 
@@ -106,6 +109,7 @@ async function display(elements) {
     div2.appendChild(dropdiv);
     div.append(img, div2);
 
+    //adding created elements on DOM for a item
     document.getElementById("items").appendChild(div);
   }
 }
