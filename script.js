@@ -96,8 +96,7 @@ async function display(elements) {
     dropdiv.append(add);
 
 
-    itemsSelect.addEventListener("change", countItem);
-    // add.addEventListener('mousedown',()=>{add.style.backgroundColor="green"})
+    itemsSelect.addEventListener("change", countItem);   //some issues to be solved here
     add.addEventListener("click", addToCart);
 
 
@@ -131,7 +130,9 @@ function addToCart(e) {
   e.preventDefault();
   const id = parseInt(e.target.parentElement.parentElement.id);
   cartItem = JSON.parse(localStorage.getItem("cartItem"));
+
   if (cartItem === null) cartItem = [];
+
   for (let item of allItems) {
     if (item.id === id) {
 
@@ -208,31 +209,6 @@ function myFilter(e)
     }
 }
 
-
-// function showCart(e)
-// {
-
-// }
-
-
 document.getElementById("search").addEventListener("input", search);
 document.getElementById("cat").addEventListener("change",myFilter);
 
-
-// document.getElementById("cart").addEventListener('click',showCart);
-
-
-
-// document.addEventListener('DOMContentLoaded',display);
-
-// document.getElementById("items").addEventListener('click', describe);
-
-
-// function describe(e)
-// {
-//     if(e.target.className==="description")
-//     {
-//         // document.getElementById(`${e.target.id}`)
-//         e.target.childNodes[2].classList.toggle("show");
-//     }
-// }
