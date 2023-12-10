@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header style="border: 2px solid black">
-        <div class="header" style="display: flex; flex-wrap: wrap">
-          <h1 id="title">Burger Shop</h1>
-          <nav id="nav-bar" style="display: inline-flex; flex-direction: row">
-            <h3><a href="index.html">Home</a></h3>
-            <h3><a href="">Contact Us</a></h3>
-            <h3><a href="">About Us</a></h3>
-            
-            <h3 id="cart"><a href="cart.html">Cart</a></h3>
-          </nav>
-        </div>
-      </header>
+      <div class="header" style="display: flex; flex-wrap: wrap">
+        <h1 id="title">Burger Shop</h1>
+        <nav id="nav-bar" style="display: inline-flex; flex-direction: row">
+          <h3><a href="index.html">Home</a></h3>
+          <h3><a href="">Contact Us</a></h3>
+          <h3><a href="">About Us</a></h3>
 
-      <div class="container-cart">
-        <h1>Shooping Cart</h1>
+          <h3 id="cart"><a href="cart.html">Cart</a></h3>
+        </nav>
+      </div>
+    </header>
 
-        <div id="cartList">
+    <div class="container-cart">
+      <h1>Shooping Cart</h1>
 
-          <h3 id="cart-length"></h3>
+      <h4 id="msg"></h4>
 
-          <table style="width: 70%; text-align: center;">
-            <thead>
-              <tr>
-                <th><h4>Product Details</h4></th>
-                <th><h4>Quantity</h4></th>
-                <th><h4>Price</h4></th>
-                <th><h4>Total</h4></th>
-              </tr>
-            </thead>
+      <div id="cartList">
+        <h3 id="cart-length"></h3>
 
-            <tbody id="tbody">
-                <!-- <tr>
+        <table style="width: 70%; text-align: center">
+          <thead>
+            <tr>
+              <th><h4>Product Details</h4></th>
+              <th><h4>Quantity</h4></th>
+              <th><h4>Price</h4></th>
+              <th><h4>Total</h4></th>
+            </tr>
+          </thead>
+
+          <tbody id="tbody">
+            <!-- <tr>
                   <td>
                   <div class="pdetail">
                     <div class="imageDiv"><img class="cart-img" src="./images/100.jpg" alt=""></div>
@@ -63,21 +63,58 @@
                 </td>
 
                 </tr> -->
-            </tbody>
-          </table>
+          </tbody>
+        </table>
 
-          <div id="order-div">
-            <button id="order-btn">ORDER</button>
-          </div>
-            
-        </div>
-
-        <div id="order-sum" class="ordersummary show">
-            <h3>this is total</h3>
+        <div id="order-div">
+          <button id="order-btn">ORDER</button>
         </div>
       </div>
 
-      <script src="cart.js"></script>
-    
-</body>
+      <div id="order-sum" class="ordersummary show">
+        <h1>Payment</h1>
+        <div class="payment">
+          <table>
+            <thead>
+              <tr>
+                <th>Serial No</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+
+            <tbody id="pay-body">
+              <!-- <tr>
+                <td>1</td>
+                <td>Burger</td>
+                <td>4</td>
+                <td>400</td>
+              </tr> -->
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <td colspan="3">Grand Total</td>
+                <td id="grand-total">400</td>
+              </tr>
+            </tfoot>
+          </table>
+          <div id="payment-Div">
+            <button id="pay-btn">Conitnue</button>
+          </div>
+        </div>
+        <div id="c-detail" class="customer-details show">
+          <form action="#">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your e-mail" />
+            <input type="text" placeholder="Your Address" />
+            <button id="confirm">CONFIRM</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="cart.js"></script>
+  </body>
 </html>

@@ -2,6 +2,7 @@ let cartItems = JSON.parse(localStorage.getItem("cartItem"));
 const items = JSON.parse(localStorage.getItem("items"));
 const meals = JSON.parse(localStorage.getItem("meals"));
 
+
 // DISPLAYING THE CART ITEMS
 function displayCart() {
   const tbody = document.getElementById("tbody");
@@ -176,12 +177,74 @@ function checkForMeal() {
   displayCart();
 }
 
+
+//Generating the bill & grand Total amount 
 function generateBill(e)
 {
     e.preventDefault();
     
+    //on gen
+    document.getElementById("order-sum").classList.toggle("show");
+    document.getElementById("cartList").style="display:none";
+    const pbody=document.getElementById("pay-body");
+
+    let no=1;
+    let gtotal=0;
+    for(let item of cartItems)
+    {
+          const trow=document.createElement("tr");
+
+          const td1 = document.createElement("td");
+          td1.appendChild(document.createTextNode(no));
+
+
+          const td2=document.createElement("td");
+          const iName=document.createTextNode(`${item.name}`);
+          td2.appendChild(iName);
+
+          const td3=document.createElement("td");
+          const itemQuan = document.createTextNode(`${item.itemCount}`);
+          td3.appendChild(itemQuan);
+
+          const td4=document.createElement("td");
+          const iTotal=document.createTextNode(`${item.price * item.itemCount}`);
+          gtotal+=item.price * item.itemCount;
+          td4.appendChild(iTotal);
+
+          trow.append(td1,td2,td3,td4);
+          pbody.append(trow);
+          no++;
+    }
+
+    //setting grand total
+    document.getElementById("grand-total").innerText=gtotal;
+
+    //on click of continue button the events fire to ask for customer details
+    document.getElementById("pay-btn").addEventListener('click',()=>{document.getElementById("c-detail").classList.toggle("show")});
+
+
+    //event on confirming the order after filling details
+    document.getElementById("confirm").addEventListener('click',orderConfirm);
+
+    
 }
 
+//On Confirm of the order
+function orderConfirm(e)
+{
+  e.preventDefault();
+  document.getElementById('msg').innerText="Your Order is Confirmed. Enjoy your Food";
+  document.getElementById('msg').style.color="green";
+  document.getElementById("cartList").innerHTML="";
+  document.getElementById('order-sum').innerHTML="";
+  console.log("hello")
+  localStorage.setItem("orders",JSON.stringify(cartItems));
+  localStorage.removeItem("cartItem");
+  displayCart();
+}
+
+
+checkForMeal();
 
 displayCart();
 
