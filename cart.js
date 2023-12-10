@@ -8,6 +8,7 @@ const meals=JSON.parse(localStorage.getItem("meals"));
 function displayCart()
 {
     const tbody=document.getElementById('tbody');
+    tbody.innerHTML="";
 
     for(let item of cartItems)
     {
@@ -80,12 +81,14 @@ function displayCart()
         td5.appendChild(delButton);
         trow.appendChild(td5);
         
-        tbody.appendChild(trow);
+        tbody.appendChild(trow);  // Adding all table description to DOM
 
         delButton.addEventListener('click',(e)=>{e.preventDefault(); deleteFromCart(item.id)});
 
 
     }
+    document.getElementById('cart-length').innerText=`Total Item(s) : ${cartItems.length}`;
+
 
 
 }
@@ -169,4 +172,7 @@ function checkForMeal()
     
 }
 
+
 displayCart();
+
+
