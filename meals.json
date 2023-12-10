@@ -7,5 +7,77 @@
 		"category": "MEAL",
 		"type": "VEG",
 		"products": [1, 3]
-	}
+	},
+	{
+        "id": 101,
+        "name": "Chicken Deluxe Meal",
+        "price": 259,
+        "category": "MEAL",
+        "type": "NONVEG",
+        "products": [2, 6]
+    },
+    {
+        "id": 102,
+        "name": "Veggie Combo Meal",
+        "price": 219,
+        "category": "MEAL",
+        "type": "VEG",
+        "products": [4, 11]
+    },
+    {
+        "id": 103,
+        "name": "BBQ Feast Meal",
+        "price": 279,
+        "category": "MEAL",
+        "type": "NONVEG",
+        "products": [5, 14]
+    },
+    {
+        "id": 104,
+        "name": "Spicy Chicken Box",
+        "price": 239,
+        "category": "MEAL",
+        "type": "NONVEG",
+        "products": [13, 16]
+    },
+    {
+        "id": 105,
+        "name": "Vegetarian Delight Meal",
+        "price": 199,
+        "category": "MEAL",
+        "type": "VEG",
+        "products": [4, 7]
+    },
+    {
+        "id": 106,
+        "name": "Fisherman's Catch Meal",
+        "price": 289,
+        "category": "MEAL",
+        "type": "NONVEG",
+        "products": [16, 18]
+    },
+    {
+        "id": 107,
+        "name": "Mushroom Lovers Meal",
+        "price": 209,
+        "category": "MEAL",
+        "type": "VEG",
+        "products": [12, 17]
+    },
+    {
+        "id": 108,
+        "name": "Cheese Lover's Feast",
+        "price": 249,
+        "category": "MEAL",
+        "type": "VEG",
+        "products": [10, 19]
+    },
+    {
+        "id": 109,
+        "name": "Ultimate Meat Feast",
+        "price": 299,
+        "category": "MEAL",
+        "type": "NONVEG",
+        "products": [5, 8]
+    }
 ]
