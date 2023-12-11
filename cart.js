@@ -266,7 +266,19 @@ function orderConfirm(e)
   document.getElementById('msg').style.color="green";
   document.getElementById("cartList").innerHTML="";
   document.getElementById('order-sum').innerHTML="";
-  
+
+  // -- have to work on this
+  // const orders=JSON.parse(localStorage.getItem("orders"));
+  // if(orders)
+  // {
+  //   orders.push(cartItems);
+  //   localStorage.setItem("orders",JSON.stringify(orders));
+  // }
+  // else
+  // localStorage.setItem("orders",JSON.stringify(cartItems));
+ // -- end
+
+
   localStorage.setItem("orders",JSON.stringify(cartItems));
   localStorage.removeItem("cartItem");
   
