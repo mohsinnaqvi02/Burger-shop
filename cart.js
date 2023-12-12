@@ -46,6 +46,7 @@ function displayCart() {
     const quan = document.createTextNode(`${item.itemCount}`);
 
     const minusbtn = document.createElement("button");
+    minusbtn.className="small-btn";
     minusbtn.appendChild(document.createTextNode("-"));
 
     //minus button event listener
@@ -55,6 +56,8 @@ function displayCart() {
     });
 
     const plusbtn = document.createElement("button");
+    plusbtn.className="small-btn";
+
     plusbtn.appendChild(document.createTextNode("+"));
 
     //plus button event listener
@@ -70,7 +73,7 @@ function displayCart() {
     //Product Price
     const td3 = document.createElement("td");
     const itemPrice = document.createElement("h5");
-    const price = document.createTextNode(`${item.price}`);
+    const price = document.createTextNode(`\u20B9 ${item.price}`);
 
     itemPrice.appendChild(price);
     td3.appendChild(itemPrice);
@@ -79,7 +82,7 @@ function displayCart() {
     //Total Price
     const td4 = document.createElement("td");
     const itemTotal = document.createElement("h5");
-    const total = document.createTextNode(`${item.price * item.itemCount}`);
+    const total = document.createTextNode(`\u20B9 ${item.price * item.itemCount}`);
 
     itemTotal.appendChild(total);
     td4.appendChild(itemTotal);
@@ -172,6 +175,7 @@ function addCountToMeal(id,count)
     if(item.id===id)
     {
       item.itemCount=count;
+      localStorage.setItem("cartItem",JSON.stringify(cartItems));
     }
   }
   return;

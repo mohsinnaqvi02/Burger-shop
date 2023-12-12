@@ -32,9 +32,9 @@ async function setElements() {
   localStorage.setItem("meals", JSON.stringify(meals));
   localStorage.setItem("allItems", JSON.stringify(allItems));
 
-  console.log(items);
-  console.log(meals);
-  console.log(allItems);
+  // console.log(items);
+  // console.log(meals);
+  // console.log(allItems);
 
   display(allItems);
 
@@ -76,7 +76,8 @@ async function display(elements) {
     const dropdiv = document.createElement("div");
     dropdiv.classList.add("order");
     const price = document.createElement("h5");
-    price.appendChild(document.createTextNode(`Price : ${item.price}`));
+    price.className="price";
+    price.appendChild(document.createTextNode(`Price : \u20B9 ${item.price}`));
 
     //Select drop down for number of items
     const itemsSelect = document.createElement("select");
@@ -90,7 +91,7 @@ async function display(elements) {
 
     const add = document.createElement("button");
     add.append(document.createTextNode("ADD"));
-    add.className = "add-to-cart";
+    add.classList.add("add-to-cart","small-btn");
     dropdiv.append(price);
     dropdiv.append(itemsSelect);
     dropdiv.append(add);
@@ -100,7 +101,7 @@ async function display(elements) {
     itemsSelect.addEventListener("change", countItem);   //some issues to be solved here
 
     //event to add item to cart
-    add.addEventListener("click", addToCart);
+    add.addEventListener("click", (e)=>{addToCart(e,elements)});
 
 
     //APPENDING TO ITEMS ID DIV - which contains all the elements
@@ -130,7 +131,7 @@ function existInCart(cartItem,id)
 }
 
 //adding item to cart
-function addToCart(e) {
+function addToCart(e,elements) {
   e.preventDefault();
   const id = parseInt(e.target.parentElement.parentElement.id);
   cartItem = JSON.parse(localStorage.getItem("cartItem"));
@@ -149,13 +150,16 @@ function addToCart(e) {
       cartItem.push(item);
     }
   }
-  console.log(cartItem);
+  
   localStorage.setItem("cartItem", JSON.stringify(cartItem));
   itemCount=1;
+
+  display(elements); // fix this
 }
 
 function countItem(e) {
   itemCount = Number(e.target.value);
+
 }
 
 

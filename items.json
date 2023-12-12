@@ -46,27 +46,7 @@
         "category": "DRINK",
         "type": "VEG"
     },
-    {
-        "id": 7,
-        "name": "Vegetable Biryani",
-        "price": 179,
-        "category": "MAIN COURSE",
-        "type": "VEG"
-    },
-    {
-        "id": 8,
-        "name": "Chicken Biryani",
-        "price": 229,
-        "category": "MAIN COURSE",
-        "type": "NONVEG"
-    },
-    {
-        "id": 9,
-        "name": "Classic Beef Burger",
-        "price": 219,
-        "category": "BURGER",
-        "type": "NONVEG"
-    },
+    
     {
         "id": 10,
         "name": "Double Cheese Burger",
@@ -143,5 +123,26 @@
         "price": 149,
         "category": "DRINK",
         "type": "VEG"
+    },
+    {
+        "id": 7,
+        "name": "Vegetable Biryani",
+        "price": 179,
+        "category": "MAIN COURSE",
+        "type": "VEG"
+    },
+    {
+        "id": 8,
+        "name": "Chicken Biryani",
+        "price": 229,
+        "category": "MAIN COURSE",
+        "type": "NONVEG"
+    },
+    {
+        "id": 9,
+        "name": "Classic Beef Burger",
+        "price": 219,
+        "category": "BURGER",
+        "type": "NONVEG"
     }
 ]
