@@ -51,7 +51,7 @@ function displayCart() {
     //minus button event listener
     minusbtn.addEventListener("click", (e) => {
       e.preventDefault();
-      subCount(item.id);
+      subCount(item.id,1);
     });
 
     const plusbtn = document.createElement("button");
@@ -111,7 +111,7 @@ function displayCart() {
 
 //increasing item count for an item
 function plusCount(id) {
-  for (item of cartItems) {
+  for (let item of cartItems) {
     if (item.id === id) {
       item.itemCount += 1;
       localStorage.setItem("cartItem", JSON.stringify(cartItems));
@@ -122,10 +122,10 @@ function plusCount(id) {
 }
 
 //descreasing item count for an item
-function subCount(id) {
-  for (item of cartItems) {
+function subCount(id,count) {
+  for (let item of cartItems) {
     if (item.id === id) {
-      item.itemCount -= 1;
+      item.itemCount -= count;
       localStorage.setItem("cartItem", JSON.stringify(cartItems));
       if (item.itemCount < 1) deleteFromCart(item.id);
       displayCart();
@@ -177,6 +177,44 @@ function addCountToMeal(id,count)
   return;
 }
 
+//if meal already exist check
+function existInCart(id,count)
+{
+  for(let item of cartItems)
+  {
+    if(item.id===id)
+    {
+      item.itemCount+=count;
+      return true;
+    }
+  }
+  return false;
+}
+
+
+//optimizing the bill to form meals from selected items
+function optimizeBill(prodArr)
+{
+  let m=Number.MAX_VALUE;
+  console.log(m);
+  
+  for(let item of cartItems)
+  {
+    for(let i of prodArr)
+    {
+      if(item.id===i)
+      {
+        m=Math.min(m,item.itemCount);
+      }
+    }
+  }
+  for(let i of prodArr)
+  {
+    subCount(i,m); // decreasing the item count if found to form as meal -n numbers
+  }
+
+  return m;
+}
 
 
 //Checking for whether items are part of a meal - Optimizing the bill of customer;
@@ -193,11 +231,18 @@ function checkForMeal() {
     }
 
     if (isPresent) {
-      cartItems.push(item);
-      addCountToMeal(item.id,1);
-      for (let i of prodArr) {
-        deleteFromCart(i);
+
+      const mealCount=optimizeBill(prodArr);  //getting number of meal that could be made
+
+      const checkExist=existInCart(item.id,mealCount);
+      if(!checkExist)
+      {
+        cartItems.push(item); //pushing meal on cart item
+        addCountToMeal(item.id,mealCount); // adding meals count
+
       }
+
+
     }
   }
   displayCart();
