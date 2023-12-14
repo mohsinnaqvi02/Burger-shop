@@ -146,7 +146,7 @@ function deleteFromCart(id) {
     }
   });
 
-  localStorage.setItem("cartItem", JSON.stringify(cartItems));
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
   displayCart();
 }
@@ -329,7 +329,7 @@ function orderConfirm(e)
 
 
   localStorage.setItem("orders",JSON.stringify(cartItems));
-  localStorage.removeItem("cartItem");
+  localStorage.removeItem("cartItems");
   
 }
 
