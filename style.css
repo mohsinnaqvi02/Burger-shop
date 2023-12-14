@@ -28,7 +28,8 @@ body {
     margin: 10px;
     padding: 10px;
     /* border: 2px solid black; */
-    box-shadow: 5px 10px 10px 10px #ec8d7c;
+    /* box-shadow: 5px 10px 10px 10px #ec8d7c; */
+    box-shadow: 2px 0px 30px 3px #ec8d7c;
     border-radius: 10px;
     
     
@@ -44,6 +45,8 @@ body {
     height: 200px;
     width: 300px;
     object-fit: scale-down;
+    display: flex;
+    flex-wrap: wrap;
     /* background-color: aliceblue; */
 }
 
@@ -55,14 +58,24 @@ body {
     /* overflow: hidden; */
     background-color: #EE4E34;
     color: aliceblue;
+    /* display: block; */
     display: flex;
     flex-wrap: wrap;
 }
+header img{
+    object-fit: cover;
+    /* margin-top: 20px; */
+}
 
-a:hover{
+h3>a{
+    margin: 20px;
+    padding: 10px;
+}
+
+h3>a:hover{
     background-color: white;
     color: black;
-    font-size: 22px;
+
 }
 
 a{
@@ -72,13 +85,13 @@ a{
     text-decoration: none;
     text-transform: uppercase;
     color: aliceblue;
-    margin-left: 30px;
-    margin-right: 30px;
+    /* margin-left: 30px; 
+     margin-right: 30px; */
 }
 
 nav{
-    justify-content: center;
     text-align: center;
+    margin: 20px;
 }
 
 .description{
