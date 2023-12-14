@@ -163,11 +163,12 @@ function addToCart(e,elements) {
   itemCount=1;
 
   display(elements); // fix this
-  document.getElementById("added").classList.toggle("show")
-  setTimeout(()=>{
-    document.getElementById("added").classList.toggle("show")
 
-  },2000)
+  // document.getElementById("added").classList.toggle("show")
+  // setTimeout(()=>{
+  //   document.getElementById("added").classList.toggle("show")
+
+  // },2000)
 }
 
 function countItem(e) {
