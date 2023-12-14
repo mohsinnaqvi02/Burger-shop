@@ -1,6 +1,6 @@
 let items = [];
 let meals = [];
-let cartItem = [];
+let cartItems = [];
 let allItems = [];
 
 let itemListDiv = document.getElementById("items");
@@ -92,9 +92,17 @@ async function display(elements) {
     const add = document.createElement("button");
     add.append(document.createTextNode("ADD"));
     add.classList.add("add-to-cart","small-btn");
+
+    // const addEventMessage=document.createElement('p');
+    // addEventMessage.appendChild(document.createTextNode("Item Added"));
+    // addEventMessage.id="added";
+    // addEventMessage.className="show";
+    // addEventMessage.style.color="green";
+
     dropdiv.append(price);
     dropdiv.append(itemsSelect);
     dropdiv.append(add);
+    // dropdiv.append(addEventMessage);
 
 
     //event for item count
@@ -116,13 +124,13 @@ async function display(elements) {
 }
 
 //Modify item count if item already present in cart
-function existInCart(cartItem,id)
+function existInCart(cartItems,id)
 {
-  for(let item of cartItem)
+  for(let cartItem of cartItems)
   {
-    if(item.id===id)
+    if(cartItem.id===id)
     {
-      item.itemCount+=itemCount;
+      cartItem.itemCount+=itemCount;
       itemCount=1;
       return true;
     }
@@ -134,27 +142,32 @@ function existInCart(cartItem,id)
 function addToCart(e,elements) {
   e.preventDefault();
   const id = parseInt(e.target.parentElement.parentElement.id);
-  cartItem = JSON.parse(localStorage.getItem("cartItem"));
+  cartItems = JSON.parse(localStorage.getItem("cartItems"));
 
-  if (cartItem === null) cartItem = [];
+  if (cartItems === null) cartItems = [];
 
   for (let item of allItems) {
     if (item.id === id) {
 
       //check if item already exist in cart
-      const chekCart=existInCart(cartItem,id);
+      const chekCart=existInCart(cartItems,id);
       if(chekCart)
       break;
 
       item.itemCount = itemCount;
-      cartItem.push(item);
+      cartItems.push(item);
     }
   }
   
-  localStorage.setItem("cartItem", JSON.stringify(cartItem));
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
   itemCount=1;
 
   display(elements); // fix this
+  document.getElementById("added").classList.toggle("show")
+  setTimeout(()=>{
+    document.getElementById("added").classList.toggle("show")
+
+  },2000)
 }
 
 function countItem(e) {

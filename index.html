@@ -9,17 +9,20 @@
 
   <body>
     <header>
-      <div class="header" style="display: flex; flex-wrap: wrap">
+      <div class="header">
+  
         <h1 id="title">Burger Shop</h1>
+  
         <nav id="nav-bar" style="display: inline-flex; flex-direction: row">
           <h3><a href="index.html">Home</a></h3>
-          <h3><a href="">Contact Us</a></h3>
-          <h3><a href="">About Us</a></h3>
-          
           <h3 id="cart"><a href="cart.html">Cart</a></h3>
           <h3 id="myorders"><a href="order.html">My Orders</a></h3>
-
+  
+            <h3 class="more"><a href="">Contact Us</a></h3>
+            <h3 class="more"><a href="">About Us</a></h3>
         </nav>
+  
+  
       </div>
     </header>
 
@@ -29,6 +32,7 @@
         <input type="search" id="search" placeholder="Search" />
 
         <!-- drop down for Filter -->
+        <label for="cat">Filters
         <select name="category" id="cat">
           <option value="all">All</option>
           <option value="veg">Veg</option>
@@ -36,7 +40,14 @@
           <option value="meals">Meals</option>
           <option value="drinks">Drinks</option>
         </select>
+      </label>
       </div>
+      <div id="added" class="show">
+
+        <h2>Item Added</h2>
+
+      </div>
+      <!-- <h3 id="added" class="show" style="color: green; position: fixed; margin-left: 30px;background-color: rgba(0, 0, 0, 0.718);">Item Added</h3> -->
 
       <div id="items">
 

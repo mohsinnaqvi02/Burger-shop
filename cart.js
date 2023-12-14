@@ -1,4 +1,4 @@
-let cartItems = JSON.parse(localStorage.getItem("cartItem"));
+let cartItems = JSON.parse(localStorage.getItem("cartItems"));
 const items = JSON.parse(localStorage.getItem("items"));
 const meals = JSON.parse(localStorage.getItem("meals"));
 
@@ -117,7 +117,7 @@ function plusCount(id) {
   for (let item of cartItems) {
     if (item.id === id) {
       item.itemCount += 1;
-      localStorage.setItem("cartItem", JSON.stringify(cartItems));
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
       displayCart();
       return;
     }
@@ -129,7 +129,7 @@ function subCount(id,count) {
   for (let item of cartItems) {
     if (item.id === id) {
       item.itemCount -= count;
-      localStorage.setItem("cartItem", JSON.stringify(cartItems));
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
       if (item.itemCount < 1) deleteFromCart(item.id);
       displayCart();
       return;
@@ -175,7 +175,7 @@ function addCountToMeal(id,count)
     if(item.id===id)
     {
       item.itemCount=count;
-      localStorage.setItem("cartItem",JSON.stringify(cartItems));
+      localStorage.setItem("cartItems",JSON.stringify(cartItems));
     }
   }
   return;

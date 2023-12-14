@@ -29,10 +29,8 @@ body {
     padding: 10px;
     /* border: 2px solid black; */
     box-shadow: 5px 10px 10px 10px #ec8d7c;
-     /* #888888 */
     border-radius: 10px;
     
-    /* background-color: rgb(225, 229, 177); */
     
 }
 
@@ -53,16 +51,24 @@ body {
     display: none;
 }
 
-header{
-    /* background-color: black; */
-    margin: 10px;
-    padding: 20px;
+.header{
+    /* overflow: hidden; */
     background-color: #EE4E34;
-    
     color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a:hover{
+    background-color: white;
+    color: black;
+    font-size: 22px;
 }
 
 a{
+    font-size: 20px;
+    line-height: 25px;
+    border-radius: 4px;
     text-decoration: none;
     text-transform: uppercase;
     color: aliceblue;
@@ -110,7 +116,7 @@ nav{
 #order-div
 {
     text-align: center;
-    background-color: black;
+    /* background-color: black; */
 }
 #order-btn{
     background-color: rgb(54, 190, 54);
@@ -120,13 +126,23 @@ nav{
     border: 2px solid black;
     border-radius: 10px;
 }
+#order-btn:hover{
+    height: 32px;
+    width: 152px;
+}
 
 .remove-btn{
     background-color: red;
     height: 30px;
-    width: 100px;
+    width: 70px;
     border: 2px solid black;
     border-radius: 10px;
+}
+
+.remove-btn:hover{
+    height: 31px;
+    width: 71px;
+
 }
 
 .input-field{
@@ -174,4 +190,32 @@ form{
     background-color: #ec8d7c;
     margin: 10px;
 
+}
+
+.filters{
+    /* margin: 20px;
+    background-color: green; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* justify-content: center; */
+    padding: 10px;
+}
+
+#search{
+    height: 24px;
+    /* box-shadow:2px 2px 2px 2px #ec8d7c; */
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#cat{
+    height: 25px;
+    margin: 10px;
+    border-radius: 5px;
+
+}
+
+#added{
+    color: wheat; position: fixed; margin-left: 30px;background-color: #EE4E34;
 }
