@@ -8,6 +8,9 @@ let gtotal=0;
 
 // DISPLAYING THE CART ITEMS
 function displayCart() {
+
+  checkCartEmpty();
+
   const tbody = document.getElementById("tbody");
   tbody.innerHTML = "";
 
@@ -317,22 +320,36 @@ function orderConfirm(e)
   document.getElementById('order-sum').innerHTML="";
 
   // -- have to work on this
-  // const orders=JSON.parse(localStorage.getItem("orders"));
-  // if(orders)
-  // {
-  //   orders.push(cartItems);
-  //   localStorage.setItem("orders",JSON.stringify(orders));
-  // }
-  // else
-  // localStorage.setItem("orders",JSON.stringify(cartItems));
+  let orders=JSON.parse(localStorage.getItem("orders"));
+  if(orders)
+  {
+    orders.push(cartItems);
+    localStorage.setItem("orders",JSON.stringify(orders));
+  }
+  else
+  {
+    orders=[cartItems];
+    // orderConfirm.push(cartItems);
+    localStorage.setItem("orders",JSON.stringify(orders));
+
+  }
  // -- end
 
 
-  localStorage.setItem("orders",JSON.stringify(cartItems));
+  // localStorage.setItem("orders",JSON.stringify(orders));
   localStorage.removeItem("cartItems");
   
 }
 
+function checkCartEmpty()
+{
+  if(!cartItems.length)
+  {
+    document.getElementById(
+      "msg"
+    ).innerText = `Cart is Empty`;
+  }
+}
 
 checkForMeal();
 

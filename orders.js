@@ -4,38 +4,42 @@ const orders=JSON.parse(localStorage.getItem("orders"));
 console.log(orders);
 
 
-// <div class="card">
-//             <h2>Order Number</h2>
-//             <h3>Ordered Item(s)</h3>
-//             <h4>Item Name 1</h4>
-//             <h4>Item Name 2</h4>
-//             <h4>Item Name 3</h4>
-//             <h4>Item Name 4</h4>
-//             <h4>Grand Total : 400</h4>
-
-//           </div>
 
 function display()
 {
     if(!orders)
+        {
+            console.log("NO ORDERS");
+            document.getElementById("order-main").classList.add("show");
+            return;
+        }
+
+    
+    for(let order of orders)
     {
-        console.log("NO ORDERS");
-        document.getElementById("order-main").classList.add("show");
+        const orderList=document.getElementById("orderList");
+        const div=displayOrder(order);
+        orderList.appendChild(div);
+
     }
+    
+}
+
+
+function displayOrder(order)
+{
 
     let gtotal=0;
-
-    const orderList=document.getElementById("orderList");
 
     const div=document.createElement('div');
     div.className="card"
     
     const itemsNo=document.createElement("h2");
-    itemsNo.appendChild(document.createTextNode(`Total Item(s): ${orders.length}`));
+    itemsNo.appendChild(document.createTextNode(`Total Item(s): ${order.length}`));
 
     div.appendChild(itemsNo);
 
-    for(let item of orders)
+    for(let item of order)
     {
 
         const itemName=document.createElement("h4");
@@ -49,7 +53,8 @@ function display()
     const total=document.createElement('h4');
     total.appendChild(document.createTextNode("Grand Total : " +gtotal));
     div.appendChild(total);
-    orderList.appendChild(div);
+    return div;
+
 }
 
 display();

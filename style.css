@@ -3,7 +3,6 @@ body {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    /* background-color : rgb(165, 209, 203); */
     background-color: #FCEDDA;
     margin: 0;
     padding: 0;
@@ -27,9 +26,7 @@ body {
 .card {
     margin: 10px;
     padding: 10px;
-    /* border: 2px solid black; */
-    /* box-shadow: 5px 10px 10px 10px #ec8d7c; */
-    box-shadow: 2px 0px 30px 3px #ec8d7c;
+    box-shadow: 0px 0px 5px 2px #ec8d7c;
     border-radius: 10px;
     
     
@@ -55,6 +52,7 @@ body {
 }
 
 .header{
+    width: 100%;
     /* overflow: hidden; */
     background-color: #EE4E34;
     color: aliceblue;
@@ -85,18 +83,17 @@ a{
     text-decoration: none;
     text-transform: uppercase;
     color: aliceblue;
-    /* margin-left: 30px; 
-     margin-right: 30px; */
 }
 
 nav{
+    display: inline-flex; 
+    flex-direction: row;
     text-align: center;
     margin: 20px;
 }
 
 .description{
     width: 100%;
-    /* border: 2px solid red; */
 }
 
 .cart-img{
@@ -106,7 +103,6 @@ nav{
 }
 
 #cartList{
-    /* border: 2px solid black; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -229,6 +225,19 @@ form{
 
 }
 
-#added{
-    color: wheat; position: fixed; margin-left: 30px;background-color: #EE4E34;
+ .icon{
+    display: none;
 }
+
+ @media screen and (max-width:720px) {
+    .header .icon{
+        float: right;
+        display: block;
+    }
+ }
+
+ @media screen and (max-width:720px) {
+    nav{
+        display: none;
+    }
+ }
