@@ -11,16 +11,33 @@
 <body>
   <header>
     <div class="header">
-      <img src="./images/Now Open!.png" height="100px" width="150px">
 
-      <nav id="nav-bar" style="display: inline-flex; flex-direction: row">
+      <img src="./images/Now Open!.png" height="100px" width="150px">
+      
+      <!-- web view -->
+      <nav id="nav-bar" class="navbar">
         <h3><a href="index.html">Home</a></h3>
         <h3 id="cart"><a href="cart.html">Cart</a></h3>
         <h3 id="myorders"><a href="order.html">My Orders</a></h3>
       </nav>
 
+      <!-- mobile icon -->
+      <a href="" class="icon" id="mob-icon" onclick="" >&#9776;</a>
+
+
+      <!-- mobile view -->
+      <div class="mobile-header show" id="mob-header">
+        <nav id="" class="">
+          <h3><a href="index.html">Home</a></h3>
+          <h3 id=""><a href="cart.html">Cart</a></h3>
+          <h3 id=""><a href="order.html">My Orders</a></h3>
+        </nav>
+
+      </div>
+
     </div>
   </header>
+
 
   <div class="container-cart">
     <h1>Shopping Cart</h1>
@@ -129,6 +146,7 @@
   </div>
 
   <script src="cart.js"></script>
+  <script src="header.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 let items = [];
 let meals = [];
 let cartItems = [];
@@ -6,7 +7,6 @@ let allItems = [];
 let itemListDiv = document.getElementById("items");
 
 let itemCount = 1;
-
 
 document.body.onload = setElements; //On loading of DOM the display method get called;
 
@@ -37,6 +37,8 @@ async function setElements() {
   // console.log(allItems);
 
   display(allItems);
+  showCartCount();
+  
 
   // document.getElementById("cat").addEventListener("change",myFilter);
 
@@ -44,8 +46,7 @@ async function setElements() {
 
 async function display(elements) {
 
-    itemListDiv.innerHTML="";
-
+  itemListDiv.innerHTML="";
   for (let item of elements) {
     // console.log(item.name);
     //CREATING CARD DIV
@@ -121,6 +122,8 @@ async function display(elements) {
     //adding created elements on DOM for a item
     document.getElementById("items").appendChild(div);
   }
+
+  showCartCount();
 }
 
 //Modify item count if item already present in cart
@@ -162,13 +165,7 @@ function addToCart(e,elements) {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   itemCount=1;
 
-  display(elements); // fix this
-
-  // document.getElementById("added").classList.toggle("show")
-  // setTimeout(()=>{
-  //   document.getElementById("added").classList.toggle("show")
-
-  // },2000)
+  display(elements); 
 }
 
 function countItem(e) {
@@ -231,6 +228,37 @@ function myFilter(e)
     }
 }
 
+    
+function showCartCount(){
+    // console.log(cartItems.length);
+    if(cartItems.length)
+    {   
+        document.getElementById('cart-item-box').style="display:block";
+        const numbers=document.getElementById("no-of-Items");
+        const quan=document.getElementById("no-of-quan");
+        numbers.innerText=`${cartItems.length} Item(s)`;
+        quan.innerText=`Quantity : ${quantity()}`;
+        
+}
+else
+document.getElementById('cart-item-box').style="display:none";
+
+}
+
+function quantity()
+{
+  let totalQuantity=0
+  for(let item of cartItems)
+  {
+      totalQuantity+=item.itemCount;
+    }
+    return totalQuantity;
+}
+showCartCount();
+
+
+
 document.getElementById("search").addEventListener("input", search);
 document.getElementById("cat").addEventListener("change",myFilter);
+
 
