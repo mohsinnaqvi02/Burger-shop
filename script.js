@@ -37,8 +37,6 @@ async function setElements() {
   // console.log(allItems);
 
   display(allItems);
-  showCartCount();
-  
 
   // document.getElementById("cat").addEventListener("change",myFilter);
 
@@ -230,14 +228,15 @@ function myFilter(e)
 
     
 function showCartCount(){
-    // console.log(cartItems.length);
+    const cartItems=JSON.parse(localStorage.getItem("cartItems"));
+    console.log("Anadi bhai")
     if(cartItems.length)
     {   
         document.getElementById('cart-item-box').style="display:block";
         const numbers=document.getElementById("no-of-Items");
         const quan=document.getElementById("no-of-quan");
         numbers.innerText=`${cartItems.length} Item(s)`;
-        quan.innerText=`Quantity : ${quantity()}`;
+        quan.innerText=`Quantity : ${quantity(cartItems)}`;
         
 }
 else
@@ -245,7 +244,7 @@ document.getElementById('cart-item-box').style="display:none";
 
 }
 
-function quantity()
+function quantity(cartItems)
 {
   let totalQuantity=0
   for(let item of cartItems)
@@ -254,7 +253,9 @@ function quantity()
     }
     return totalQuantity;
 }
-showCartCount();
+
+
+// showCartCount();
 
 
 

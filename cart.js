@@ -17,7 +17,7 @@ function displayCart() {
   for (let item of cartItems) {
     const trow = document.createElement("tr");
     const td1 = document.createElement("td");
-
+    td1.className="td1";
     //Product Details
     const div1 = document.createElement("div");
     const div2 = document.createElement("div");
@@ -45,6 +45,7 @@ function displayCart() {
 
     //Product Quantity
     const td2 = document.createElement("td");
+    td2.className="td2";
     const itemQuan = document.createElement("h5");
     const quan = document.createTextNode(`${item.itemCount}`);
 
@@ -93,8 +94,17 @@ function displayCart() {
 
     //delete item from cart
     const td5 = document.createElement("td");
+    td5.className="deltd";
     const delButton = document.createElement("button");
     delButton.className="remove-btn";
+
+    const delIcon=document.createElement('img');
+    delIcon.className="delIcon show";
+    delIcon.src = './images/delIcon.svg';
+
+    td5.appendChild(delIcon);
+
+
     delButton.appendChild(document.createTextNode("Remove"));
     td5.appendChild(delButton);
     trow.appendChild(td5);
