@@ -9,7 +9,7 @@ let gtotal=0;
 // DISPLAYING THE CART ITEMS
 function displayCart() {
 
-  checkCartEmpty();
+  // checkCartEmpty();
 
   const tbody = document.getElementById("tbody");
   tbody.innerHTML = "";
@@ -97,7 +97,9 @@ function displayCart() {
     td5.className="deltd";
     const delButton = document.createElement("button");
     delButton.className="remove-btn";
+    
 
+    //delete icon for
     const delIcon=document.createElement('img');
     delIcon.className="delIcon show";
     delIcon.src = './images/delIcon.svg';
@@ -116,12 +118,20 @@ function displayCart() {
       e.preventDefault();
       deleteFromCart(item.id);
     });
+
+    //remove icon event listener
+    delIcon.addEventListener("click", (e) => {
+      e.preventDefault();
+      deleteFromCart(item.id);
+    });
   }
 
   //display length of item(s) in cart
   document.getElementById(
     "cart-length"
   ).innerText = `Total Item(s) : ${cartItems.length}`;
+
+
 
 }
 
@@ -237,7 +247,7 @@ function optimizeBill(prodArr)
 //Checking for whether items are part of a meal - Optimizing the bill of customer;
 function checkForMeal() {
   //OPTIMIZE THIS CODE
-
+  checkCartEmpty();
   console.log("check for meal");
   for (let item of meals) {
     const prodArr = item.products;
@@ -271,11 +281,11 @@ function checkForMeal() {
 //Generating the bill & grand Total amount 
 function generateBill(e)
 {
-    e.preventDefault();
+    // e.preventDefault();
     
     //on gen
     document.getElementById("order-sum").classList.toggle("show");
-    document.getElementById("cartList").style="display:none";
+    // document.getElementById("cartList").style="display:none";
     const pbody=document.getElementById("pay-body");
 
     let no=1;
@@ -296,7 +306,7 @@ function generateBill(e)
           td3.appendChild(itemQuan);
 
           const td4=document.createElement("td");
-          const iTotal=document.createTextNode(`${item.price * item.itemCount}`);
+          const iTotal=document.createTextNode(`\u20B9 ${item.price * item.itemCount}`);
           gtotal+=item.price * item.itemCount;
           td4.appendChild(iTotal);
 
@@ -306,10 +316,10 @@ function generateBill(e)
     }
 
     //setting grand total
-    document.getElementById("grand-total").innerText=gtotal;
+    document.getElementById("grand-total").innerText=`\u20B9 ${gtotal}`;
 
     //on click of continue button the events fire to ask for customer details
-    document.getElementById("pay-btn").addEventListener('click',()=>{document.getElementById("c-detail").classList.toggle("show")});
+    // document.getElementById("pay-btn").addEventListener('click',()=>{document.getElementById("c-detail").classList.toggle("show")});
 
 
     //event on confirming the order after filling details
@@ -329,7 +339,6 @@ function orderConfirm(e)
   document.getElementById("cartList").innerHTML="";
   document.getElementById('order-sum').innerHTML="";
 
-  // -- have to work on this
   let orders=JSON.parse(localStorage.getItem("orders"));
   if(orders)
   {
@@ -339,7 +348,6 @@ function orderConfirm(e)
   else
   {
     orders=[cartItems];
-    // orderConfirm.push(cartItems);
     localStorage.setItem("orders",JSON.stringify(orders));
 
   }
@@ -353,16 +361,52 @@ function orderConfirm(e)
 
 function checkCartEmpty()
 {
-  if(!cartItems.length)
+  if(cartItems===null || cartItems.length<=0)
   {
-    document.getElementById(
-      "msg"
-    ).innerText = `Cart is Empty`;
+    document.getElementById("cartList").innerHTML="";
+    document.getElementById("msg").innerText = `Cart is Empty`;
+
+    document.getElementById('cart-empty').classList.toggle("show");
   }
 }
 
-checkForMeal();
 
+checkForMeal();
 displayCart();
 
 document.getElementById('order-btn').addEventListener('click',generateBill);
+
+
+//modal
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("order-div");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+//modal end
+
+
+//remove icon
+

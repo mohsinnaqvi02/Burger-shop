@@ -1,72 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <header>
+      <div class="header">
+        <img src="./images/Now Open!.png" height="100px" width="150px" />
 
-<body>
-  <header>
-    <div class="header">
-
-      <img src="./images/Now Open!.png" height="100px" width="150px">
-      
-      <!-- web view -->
-      <nav id="nav-bar" class="navbar">
-        <h3><a href="index.html">Home</a></h3>
-        <h3 id="cart"><a href="cart.html">Cart</a></h3>
-        <h3 id="myorders"><a href="order.html">My Orders</a></h3>
-      </nav>
-
-      <!-- mobile icon -->
-      <a href="" class="icon" id="mob-icon" onclick="" >&#9776;</a>
-
-
-      <!-- mobile view -->
-      <div class="mobile-header show" id="mob-header">
-        <nav id="" class="">
+        <!-- web view -->
+        <nav id="nav-bar" class="navbar">
           <h3><a href="index.html">Home</a></h3>
-          <h3 id=""><a href="cart.html">Cart</a></h3>
-          <h3 id=""><a href="order.html">My Orders</a></h3>
+          <h3 id="cart"><a href="cart.html">Cart</a></h3>
+          <h3 id="myorders"><a href="order.html">My Orders</a></h3>
         </nav>
 
+        <!-- mobile icon -->
+        <a href="" class="icon" id="mob-icon" onclick="">&#9776;</a>
+
+        <!-- mobile view -->
+        <div class="mobile-header show" id="mob-header">
+          <nav id="" class="">
+            <h3><a href="index.html">Home</a></h3>
+            <h3 id=""><a href="cart.html">Cart</a></h3>
+            <h3 id=""><a href="order.html">My Orders</a></h3>
+          </nav>
+        </div>
       </div>
+    </header>
 
-    </div>
-  </header>
+    <div class="container-cart" style="padding: 20px; text-align: center;">
+      <h1 style="font-family: Arial, Helvetica; margin: 30px;;">CART</h1>
 
+      <h4 id="msg"></h4>
 
-  <div class="container-cart">
-    <h1>Shopping Cart</h1>
+      <a href="index.html"><button id="cart-empty" class="small-btn show">Add Items to Cart</button></a>
 
-    <h4 id="msg"></h4>
+      <div id="cartList">
+        <h3 id="cart-length"></h3>
 
-    <div id="cartList">
-      <h3 id="cart-length"></h3>
+        <table style="width: 100%; text-align: center">
+          <thead>
+            <tr>
+              <th>
+                <h4>Product Details</h4>
+              </th>
+              <th>
+                <h4>Quantity</h4>
+              </th>
+              <th>
+                <h4>Price</h4>
+              </th>
+              <th>
+                <h4>Total</h4>
+              </th>
+            </tr>
+          </thead>
 
-      <table style="width: 100%; text-align: center">
-        <thead>
-          <tr>
-            <th>
-              <h4>Product Details</h4>
-            </th>
-            <th>
-              <h4>Quantity</h4>
-            </th>
-            <th>
-              <h4>Price</h4>
-            </th>
-            <th>
-              <h4>Total</h4>
-            </th>
-          </tr>
-        </thead>
-
-        <tbody id="tbody">
-          <!-- <tr>
+          <tbody id="tbody">
+            <!-- <tr>
                   <td>
                   <div class="pdetail">
                     <div class="imageDiv"><img class="cart-img" src="./images/100.jpg" alt=""></div>
@@ -90,63 +86,82 @@
                 </td>
 
                 </tr> -->
-        </tbody>
-      </table>
-
-      <div id="order-div">
-        <button id="order-btn">Order</button>
-      </div>
-    </div>
-
-    <div id="order-sum" class="ordersummary show">
-      <h1>Payment</h1>
-      <div class="payment">
-        <table>
-          <thead>
-            <tr>
-              <th>Serial No</th>
-              <th>Item Name</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-
-          <tbody id="pay-body">
-            <!-- <tr>
-                <td>1</td>
-                <td>Burger</td>
-                <td>4</td>
-                <td>400</td>
-              </tr> -->
           </tbody>
-
-          <tfoot>
-            <tr>
-              <td colspan="3">Grand Total</td>
-              <td id="grand-total">400</td>
-            </tr>
-          </tfoot>
         </table>
-        <div id="payment-Div">
-          <button id="pay-btn">Conitnue</button>
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 style="font-family: Arial, Helvetica; margin: 30px;">PAYMENT</h1>
+            <div class="payment">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Serial No</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+
+                <tbody id="pay-body">
+                  <!-- <tr>
+              <td>1</td>
+              <td>Burger</td>
+              <td>4</td>
+              <td>400</td>
+            </tr> -->
+                </tbody>
+
+                <tfoot>
+                  <tr>
+                    <td colspan="3"><b>Grand Total -></b></td>
+                    <td id="grand-total"></td>
+                  </tr>
+                </tfoot>
+              </table>
+              <!-- <div id="payment-Div">
+                <button id="pay-btn">Conitnue</button>
+              </div> -->
+            </div>
+            <div id="c-detail" class="customer-details">
+              <form action="#">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  class="input-field"
+                />
+                <br />
+                <input
+                  type="email"
+                  placeholder="Your e-mail"
+                  class="input-field"
+                />
+                <br />
+                <input
+                  type="text"
+                  placeholder="Your Address"
+                  class="input-field"
+                />
+                <br />
+                <button id="confirm">Confirm</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="order-div">
+          <button id="order-btn">Order</button>
         </div>
       </div>
-      <div id="c-detail" class="customer-details show">
-        <form action="#">
-          <input type="text" placeholder="Your Name" class="input-field" />
-          <br>
-          <input type="email" placeholder="Your e-mail" class="input-field" />
-          <br>
-          <input type="text" placeholder="Your Address" class="input-field" />
-          <br>
-          <button id="confirm">CONFIRM</button>
-        </form>
-      </div>
+
     </div>
-  </div>
 
-  <script src="cart.js"></script>
-  <script src="header.js"></script>
-</body>
+    <div id="order-sum" class="ordersummary show"></div>
 
+    <script src="cart.js"></script>
+    <script src="header.js"></script>
+  </body>
 </html>

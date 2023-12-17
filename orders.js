@@ -1,4 +1,4 @@
-const orders=JSON.parse(localStorage.getItem("orders"));
+const orders=JSON.parse(localStorage.getItem("orders")).reverse();
 
 
 console.log(orders);
@@ -51,7 +51,7 @@ function displayOrder(order)
 
     }
     const total=document.createElement('h4');
-    total.appendChild(document.createTextNode("Grand Total : " +gtotal));
+    total.appendChild(document.createTextNode(`Grand Total : \u20B9 ${gtotal}`));
     div.appendChild(total);
     return div;
 

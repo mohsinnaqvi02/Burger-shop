@@ -230,7 +230,7 @@ function myFilter(e)
 function showCartCount(){
     const cartItems=JSON.parse(localStorage.getItem("cartItems"));
     console.log("Anadi bhai")
-    if(cartItems.length)
+    if(cartItems!==null && cartItems.length>0)
     {   
         document.getElementById('cart-item-box').style="display:block";
         const numbers=document.getElementById("no-of-Items");
